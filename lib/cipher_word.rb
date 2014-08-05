@@ -2,24 +2,20 @@ require "cipher_word/version"
 
 module CipherWord
   def self.cipher(word)
-    a = word.length
-    word_a = ''
-    (0...a).each { |i|
-      word_b = word[i].ord
-      word_b += 1
-      word_a += word_b.chr
-    }
-    word_a
+    cipher = ""
+    word.each_codepoint do |code|
+      code += 1
+      cipher += code.chr
+    end
+    cipher
   end
 
   def self.decoding(word)
-    a = word.length
-    word_a = ''
-    (0...a).each { |i|
-      word_b = word[i].ord
-      word_b -= 1
-      word_a += word_b.chr
-    }
-    word_a
+    decoding = ""
+    word.each_codepoint do |code|
+      code -= 1
+      decoding += code.chr
+    end
+    decoding
   end
 end
