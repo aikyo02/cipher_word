@@ -5,7 +5,7 @@ module CipherWord
     cipher = ""
     word.each_codepoint do |code|
       code += 1
-      cipher += code.chr
+      cipher += code.chr Encoding::UTF_8
     end
     cipher
   end
@@ -14,7 +14,7 @@ module CipherWord
     decoding = ""
     word.each_codepoint do |code|
       code -= 1
-      decoding += code.chr
+      decoding += code.chr Encoding::UTF_8
     end
     decoding
   end

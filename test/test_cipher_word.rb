@@ -8,11 +8,13 @@ class TestCipherWord < MiniTest::Test
     assert_equal CipherWord.cipher('Jean Valjean'), 'Kfbo!Wbmkfbo'
     assert_equal CipherWord.cipher('Bishop Myriel'), 'Cjtipq!Nzsjfm'
     assert_equal CipherWord.cipher('Cosette'), 'Dptfuuf'
+    assert_equal CipherWord.cipher('テスト②'), 'デズド③'
   end
 
   def test_decoding
     assert_equal CipherWord.decoding('Kfbo!Wbmkfbo'), 'Jean Valjean'
     assert_equal CipherWord.decoding('Cjtipq!Nzsjfm'), 'Bishop Myriel'
     assert_equal CipherWord.decoding('Dptfuuf'), 'Cosette'
+    assert_equal CipherWord.decoding('デズド③'), 'テスト②'
   end
 end
